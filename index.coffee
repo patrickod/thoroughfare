@@ -1,5 +1,3 @@
-return module.exports = global['redis-cache'] if global['redis-cache']?
-
 module.exports =
   configure: (client, prefix) ->
     @client = client
