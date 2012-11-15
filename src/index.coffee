@@ -1,4 +1,4 @@
-module.exports =
+class Cache
   configure: (client, prefix) ->
     @client = client
     @prefix = prefix
@@ -13,3 +13,5 @@ module.exports =
         client.setex "#{prefix}:#{key}", expire, JSON.stringify(data)
         cb(null, data)
 
+
+module.exports = Cache
