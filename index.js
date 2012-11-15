@@ -12,7 +12,7 @@
     };
 
     Cache.prototype.read = function(key, expire, generate, cb) {
-      return client.get(key, function(err, data) {
+      return this.client.get(key, function(err, data) {
         if (err != null) {
           return cb(err);
         }
@@ -23,7 +23,7 @@
           if (err != null) {
             return cb(err);
           }
-          client.setex("" + prefix + ":" + key, expire, JSON.stringify(data));
+          this.client.setex("" + prefix + ":" + key, expire, JSON.stringify(data));
           return cb(null, data);
         });
       });
