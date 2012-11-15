@@ -1,16 +1,16 @@
 class Cache
-  configure: (client, prefix) ->
+  constructor: (client, prefix) ->
     @client = client
     @prefix = prefix
 
   read: (key, expire, generate, cb) ->
-    @client.get key, (err, data) ->
+    @client.get "#{@prefix}:#{key}", (err, data) =>
       return cb(err) if err?
-      return cb(JSON.parse(data)) if data?
+      return cb(null, JSON.parse(data)) if data?
 
-      generate (err, data) ->
+      generate key, (err, data) =>
         return cb(err) if err?
-        @client.setex "#{prefix}:#{key}", expire, JSON.stringify(data)
+        @client.setex "#{@prefix}:#{key}", expire, JSON.stringify(data)
         cb(null, data)
 
 

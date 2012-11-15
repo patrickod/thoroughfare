@@ -4,26 +4,25 @@
 
   Cache = (function() {
 
-    function Cache() {}
-
-    Cache.prototype.configure = function(client, prefix) {
+    function Cache(client, prefix) {
       this.client = client;
-      return this.prefix = prefix;
-    };
+      this.prefix = prefix;
+    }
 
     Cache.prototype.read = function(key, expire, generate, cb) {
-      return this.client.get(key, function(err, data) {
+      var _this = this;
+      return this.client.get("" + this.prefix + ":" + key, function(err, data) {
         if (err != null) {
           return cb(err);
         }
         if (data != null) {
-          return cb(JSON.parse(data));
+          return cb(null, JSON.parse(data));
         }
-        return generate(function(err, data) {
+        return generate(key, function(err, data) {
           if (err != null) {
             return cb(err);
           }
-          this.client.setex("" + prefix + ":" + key, expire, JSON.stringify(data));
+          _this.client.setex("" + _this.prefix + ":" + key, expire, JSON.stringify(data));
           return cb(null, data);
         });
       });
