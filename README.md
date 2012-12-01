@@ -10,6 +10,18 @@ Alternatively, you can install using Node Package Manager (npm):
 
     npm install thoroughfare
 
+## Example
+```js
+var thoroughfare = require('thoroughfare');
+
+new thoroughfare.MemoryStore({prefix: "test"}, function(err, store){
+  if (err) throw err;
+  store.write("key", "value", function(err){
+    if (err) throw err;
+    console.log("Set key to value");
+  });
+});
+```
 
 ## Documentation
 
