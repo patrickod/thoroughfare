@@ -8,7 +8,6 @@
   "readmeFilename": "README.md",
   "description": "A really simple read-through cache based on redis.",
   "main": "index.js",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/patrickod/thoroughfare.git"
@@ -16,6 +15,9 @@
   "keywords": [
     "cache"
   ],
+  "dependencies": {
+    "underscore": "latest"
+  },
   "author": "Patrick O'Doherty",
   "license": "BSD"
 }
