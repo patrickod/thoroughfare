@@ -32,12 +32,9 @@ var run_tests = function(name, store) {
         var generate = function(key, cb) {
           cb(null, 'value')
         };
-        store.fetch('test-key', generate, function(){
-          store.read('test-key', function(err, value) {
-            if (err) return done(err);
-            value.should.equal('value');
-            done();
-          });
+        store.fetch('test-key', generate, function(err, value){
+          value.should.equal('value');
+          done();
         });
       });
 
