@@ -4,7 +4,8 @@ var _ = require('underscore');
 var MemoryStore = require('../lib/memory_store');
 
 describe('MemoryStore', function(){
-  var memory_store = new MemoryStore();
+  var memory_store = new MemoryStore({}, before(function(done){ done () }))
+
   describe('#init', function(){
     it('should create an empty store by default', function() {
       var memory_store = new MemoryStore();
