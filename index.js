@@ -1,3 +1,5 @@
+var MemoryStore = require('./lib/memory_store');
+var RedisStore = require('./lib/redis_store');
 var Cache = module.exports = (function() {
   function Cache(client, prefix) {
     this.client = client;
