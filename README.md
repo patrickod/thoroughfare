@@ -42,6 +42,7 @@ __Options__
   * port - The port that the redis server you want to use listens on
   * password - If the redis server requires authentication
   * database - Select the database that you'd like to use for storage
+  * expire - The expiration time of all keys in the store in seconds (default 0)
 
 ## Standard Methods
 
