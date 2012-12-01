@@ -1,22 +1,24 @@
 {
   "name": "thoroughfare",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   },
   "readmeFilename": "README.md",
-  "description": "A really simple read-through cache based on redis.",
+  "description": "A really simple cache inspired by Ruby on Rails' ActiveSupport::Cache gem with Memory and Redis storage options.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/patrickod/thoroughfare.git"
   },
   "keywords": [
-    "cache"
+    "cache",
+    "redis"
   ],
   "dependencies": {
-    "underscore": "latest"
+    "underscore": "latest",
+    "redis": "latest"
   },
   "author": "Patrick O'Doherty",
   "license": "BSD"
