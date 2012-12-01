@@ -23,6 +23,26 @@ Alternatively, you can install using Node Package Manager (npm):
 * [clear](#clear)
 * [keys](#keys)
 
+### Stores
+* [MemoryStore](#memorystore)
+* [RedisStore](#redisstore)
+
+## Stores
+
+<a name="memorystore"/ >
+### MemoryStore
+__Options__
+  * prefix - The prefix to be prepended to every key in the store
+
+### RedisStore
+<a name="redisstore" />
+__Options__
+  * prefix - Prefix to be prepended to all keys in the store
+  * host - The hostname of the redis server you'd like to use
+  * port - The port that the redis server you want to use listens on
+  * password - If the redis server requires authentication
+  * database - Select the database that you'd like to use for storage
+
 ## Standard Methods
 
 <a name="read" />
