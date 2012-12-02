@@ -8,15 +8,6 @@ var run_tests = function(name, store) {
       store.clear(done);
     });
 
-    describe('#read', function() {
-      it('should return null when no data exists for key', function() {
-        store.read('test-key', function(err, value) {
-          if (err) throw err;
-          should.not.exist(value);
-        })
-      });
-    });
-
     describe('#init', function(){
       it('should create an empty store by default', function(done) {
         store.keys(function(err, keys) {
@@ -27,20 +18,20 @@ var run_tests = function(name, store) {
       });
     });
 
-    describe('#fetch', function() {
+    describe('#read', function() {
+      it('should return null when no data exists for key', function() {
+        store.read('test-key', function(err, value) {
+          if (err) throw err;
+          should.not.exist(value);
+        })
+      });
+
       it('should write values into the store when passed a generator', function(done) {
         var generate = function(key, cb) {
           cb(null, 'value')
         };
-        store.fetch('test-key', generate, function(err, value){
+        store.read('test-key', generate, function(err, value){
           value.should.equal('value');
-          done();
-        });
-      });
-
-      it('should return null when not given generator', function(done){
-        store.fetch('test-key-2', function(err, value) {
-          should.not.exist(value);
           done();
         });
       });

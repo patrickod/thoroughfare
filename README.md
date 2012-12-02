@@ -33,7 +33,6 @@ new thoroughfare.MemoryStore({prefix: "test"}, function(err, store){
 * [remove](#remove)
 * [exists](#exists)
 * [clear](#clear)
-* [keys](#keys)
 
 ### Stores
 * [MemoryStore](#memorystore)
@@ -180,22 +179,3 @@ store.clear(function(err) {
 });
 ```
 
----------------------------------------
-
-<a name="keys" />
-### store.keys(callback)
-
-  Retrieves a list of all the keys that are currently set in the store
-
-__Arguments__
-* callback(err, keys) - A callback that returns with the list of all the current keys
-
-__Example__
-```js
-store.keys(function(err, keys){
-  if (err) throw err;
-  for (var i = 0; i < keys.length; i ++){
-    console.log(keys[i]);
-  }
-});
-```
