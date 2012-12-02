@@ -1,6 +1,3 @@
-var should = require('should');
-var _ = require('underscore');
-var async = require('async');
 var utils = require('./utils');
 
 var MemoryStore = require('../lib/memory_store');

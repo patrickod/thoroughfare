@@ -1,9 +1,19 @@
 var _ = require('underscore');
 var should = require('should');
 
+
 var run_tests = function(name, store) {
+
+  var test_key_exist = function(key, exists, cb) {
+    store.read(key, function(err, value){
+      if (err) return cb(err);
+      if (exists) value.should.equal(exists);
+      else should.not.exist(value);
+      cb();
+    });
+  }
+
   describe(name, function(){
-    // Clear the store for fresh test
     before(function(done){
       store.clear(done);
     });
@@ -19,11 +29,8 @@ var run_tests = function(name, store) {
     });
 
     describe('#read', function() {
-      it('should return null when no data exists for key', function() {
-        store.read('test-key', function(err, value) {
-          if (err) throw err;
-          should.not.exist(value);
-        })
+      it('should return null when no data exists for key', function(done) {
+        test_key_exist('test-key', false, done);
       });
 
       it('should write values into the store when passed a generator', function(done) {
@@ -40,10 +47,7 @@ var run_tests = function(name, store) {
     describe('#remove', function() {
       it('should remove values when given key', function(done) {
         store.remove('test-key', function(){
-          store.read('test-key', function(err, value){
-            should.not.exist(value)
-            done();
-          });
+          test_key_exist('test-key', false, done);
         });
       });
     });
