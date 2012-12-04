@@ -14,7 +14,8 @@
   },
   "keywords": [
     "cache",
-    "redis"
+    "redis",
+    "memcache"
   ],
   "dependencies": {
     "underscore": "latest",

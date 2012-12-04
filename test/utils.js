@@ -18,16 +18,6 @@ var run_tests = function(name, store) {
       store.clear(done);
     });
 
-    describe('#init', function(){
-      it('should create an empty store by default', function(done) {
-        store.keys(function(err, keys) {
-          if (err) return done(err);
-          keys.length.should.equal(0);
-          done();
-        })
-      });
-    });
-
     describe('#read', function() {
       it('should return null when no data exists for key', function(done) {
         test_key_exist('test-key', false, done);
@@ -76,14 +66,7 @@ var run_tests = function(name, store) {
 
     describe('#clear', function(){
       it('should empty the store of all values', function(done) {
-        store.clear(function(err){
-          if (err) return done(err);
-          store.keys(function(err, keys){
-            if (err) return done(err);
-            _.keys(keys).length.should.equal(0);
-            done();
-          });
-        });
+        store.clear(done);
       });
     });
   });
