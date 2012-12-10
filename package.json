@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "underscore": "latest",
-    "redis": "latest"
+    "redis": "latest",
     "betturl": "latest",
     "redis": "latest",
     "memcache": "latest"
