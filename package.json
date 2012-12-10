@@ -15,7 +15,8 @@
   "keywords": [
     "cache",
     "redis",
-    "memcache"
+    "memcache",
+    "betturl"
   ],
   "dependencies": {
     "underscore": "latest",
