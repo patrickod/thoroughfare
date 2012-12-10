@@ -16,11 +16,13 @@
     "cache",
     "redis",
     "memcache",
-    "betturl"
   ],
   "dependencies": {
     "underscore": "latest",
     "redis": "latest"
+    "betturl": "latest",
+    "redis": "latest",
+    "memcache": "latest"
   },
   "author": "Patrick O'Doherty",
   "license": "BSD"
