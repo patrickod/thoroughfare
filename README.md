@@ -14,7 +14,9 @@ Alternatively, you can install using Node Package Manager (npm):
 ```js
 var thoroughfare = require('thoroughfare');
 
-new thoroughfare.MemoryStore({prefix: "test"}, function(err, store){
+var store = thoroughfare('memory', {prefix: "test"})
+
+store.connect(function(err, store) {
   if (err) throw err;
   store.write("key", "value", function(err){
     if (err) throw err;
