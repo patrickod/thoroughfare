@@ -1,10 +1,9 @@
-var MemoryStore = require('./lib/memory_store');
-var RedisStore = require('./lib/redis_store');
+module.exports = thoroughfare = function(type, config) {
+  if (!thoroughfare.STORES[type]) { throw new Error('No thoroughfare store of type ' + type); }
+  return new thoroughfare.STORES[type](config || {});
+};
 
-var Thoroughfare = function() {
-}
-
-Thoroughfare.MemoryStore = MemoryStore
-Thoroughfare.RedisStore = RedisStore
-
-module.exports = Thoroughfare
+thoroughfare.STORES = {
+  memory: require('./lib/memory_store'),
+  redis: require('./lib/redis_store')
+};
