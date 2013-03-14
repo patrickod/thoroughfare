@@ -24,6 +24,13 @@
     "redis": "latest",
     "memcache": "latest"
   },
+  "devDependencies": {
+    "mocha": "latest",
+    "should": "latest"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
   "author": "Patrick O'Doherty",
   "license": "BSD"
 }
