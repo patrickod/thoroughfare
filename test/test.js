@@ -1,17 +1,10 @@
-var utils = require('./utils');
+var create_tests = require('./utils').create_tests;
 
-var MemoryStore = require('../lib/memory_store');
-var RedisStore = require('../lib/redis_store');
-var MemcacheStore = require('../lib/memcache_store');
-
-new MemoryStore({prefix: "test"}, function(err, store) {
-  utils.run_tests('MemoryStore', store)
-});
-
-new RedisStore({prefix: "test"}, function(err, store) {
-  utils.run_tests('RedisStore', store);
-});
-
-new MemcacheStore({prefix: "test"}, function(err, store) {
-  utils.run_tests('MemcacheStore', store);
+describe("Thoroughfare", function(){
+  describe("RedisStore", function() {
+    create_tests('redis');
+  });
+  describe("MemoryStore", function() {
+    create_tests('memory');
+  });
 });
