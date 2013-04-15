@@ -18,11 +18,10 @@
     "memcache"
   ],
   "dependencies": {
-    "underscore": "latest",
-    "redis": "latest",
-    "betturl": "latest",
-    "redis": "latest",
-    "memcache": "latest"
+    "underscore": "1.4.4",
+    "redis": "0.8.3",
+    "betturl": "0.1.0",
+    "memcache": "0.3.0"
   },
   "devDependencies": {
     "mocha": "latest",
